@@ -54,6 +54,7 @@ public class B_Binary_Search_with_sort {
             System.out.println("Element found at " + result);
         } else {
             System.out.println("Element not found");
+            sc.close();
         }
     }
 

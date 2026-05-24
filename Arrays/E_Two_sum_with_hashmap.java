@@ -1,29 +1,18 @@
-
-/*
- * Problem: Two Sum
- * Approach 2: Two pointers
- * Time complexity: O(n) if the array is sorted  
- * if the array is not sorted and you apply Arrays.sort(arr); then the TC: will be O(nlogn)
- *  Space complexity: O(1)
- * Note : two pointers only works with sorted array
- */
 import java.util.*;
 
-public class D_Two_sum_two_pointers {
+public class E_Two_sum_with_hashmap {
     static int[] twosum(int[] arr, int target) {
-        int Left = arr[0];
-        int Right = arr.length - 1;
-        int sum = arr[Left] + arr[Right];
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            int compliment = target - arr[i]; /* we need the compliment */
 
-        if (sum == target) {
-            return new int[] { Left, Right };
-        } else if (sum < target) {
-            Left++;
-        } else {
-            Right--;
+            if (map.containsKey(compliment)) /* if compleiment is seen before */
+            {
+                return new int[] { map.get(compliment), i }; /* the return */
+            }
+            map.put(arr[i], i); /* if not seen then store */
         }
-
-        return new int[] { -1, -1 };
+        return new int[] { -1, -1 }; /* if not found the valid numbers */
     }
 
     public static void main(String[] args) {
@@ -43,5 +32,4 @@ public class D_Two_sum_two_pointers {
         System.out.print("The indices are :" + result[0] + " " + result[1]);
         sc.close();
     }
-
 }

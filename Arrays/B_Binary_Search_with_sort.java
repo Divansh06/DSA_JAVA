@@ -15,7 +15,7 @@
  */
 import java.util.*;
 
-public class Binary_Search_with_sort {
+public class B_Binary_Search_with_sort {
 
     static int binarysearch(int[] arr, int target) {
         int low = 0;

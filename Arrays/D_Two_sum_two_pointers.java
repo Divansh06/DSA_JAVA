@@ -1,21 +1,26 @@
 
 /*
  * Problem: Two Sum
- * Approach 1: Brute Force
- * Time: O(n²) | Space: O(1)
+ * Approach 2: Two pointers
+ * Time complexity: O(n) | Space complexity: O(1)
+ * Note : two pointers only works with sorted array
  */
 import java.util.*;
 
-public class Two_Sum_Brute_Force {
+public class D_Two_sum_two_pointers {
     static int[] twosum(int[] arr, int target) {
-        int n = arr.length;
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (arr[i] + arr[j] == target) {
-                    return new int[] { i, j };
-                }
-            }
+        int Left = arr[0];
+        int Right = arr.length - 1;
+        int sum = arr[Left] + arr[Right];
+
+        if (sum == target) {
+            return new int[] { Left, Right };
+        } else if (sum < target) {
+            Left++;
+        } else {
+            Right--;
         }
+
         return new int[] { -1, -1 };
     }
 
@@ -25,14 +30,16 @@ public class Two_Sum_Brute_Force {
         int n = sc.nextInt();
         int[] arr = new int[n];
 
-        System.out.println("Enter array elemnets :");
+        System.out.print("Enter the elemnts of array :");
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
         System.out.print("Enter the target :");
         int target = sc.nextInt();
+
         int[] result = twosum(arr, target);
-        System.out.println("Indices :" + result[0] + " " + result[1]);
+        System.out.print("The indices are :" + result[0] + " " + result[1]);
         sc.close();
     }
+
 }

@@ -1,3 +1,12 @@
+/*
+ * Problem: Two Sum
+ * Approach 3: HashMap - OPTIMAL
+ * Time: O(n) | Space: O(n)
+ *
+ * Key Idea:
+ * compliment for each element = target - arr[i]
+ * if compliment is presnet already the answer forund!
+ */
 import java.util.*;
 
 public class E_Two_sum_with_hashmap {

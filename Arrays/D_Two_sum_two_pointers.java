@@ -11,19 +11,21 @@ import java.util.*;
 
 public class D_Two_sum_two_pointers {
     static int[] twosum(int[] arr, int target) {
-        int Left = arr[0];
+        int Left = 0;
         int Right = arr.length - 1;
-        int sum = arr[Left] + arr[Right];
 
-        if (sum == target) {
-            return new int[] { Left, Right };
-        } else if (sum < target) {
-            Left++;
-        } else {
-            Right--;
+        while (Left < Right) {
+            int sum = arr[Left] + arr[Right];
+            if (sum == target) {
+                return new int[] { Left, Right };
+            } else if (sum < target) {
+                Left++;
+            } else {
+                Right--;
+            }
         }
-
         return new int[] { -1, -1 };
+
     }
 
     public static void main(String[] args) {
@@ -43,5 +45,4 @@ public class D_Two_sum_two_pointers {
         System.out.print("The indices are :" + result[0] + " " + result[1]);
         sc.close();
     }
-
 }

@@ -9,7 +9,7 @@
  */
 import java.util.*;
 
-public class E_Two_sum_with_hashmap {
+public class F_Two_sum_with_hashmap {
     static int[] twosum(int[] arr, int target) {
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < arr.length; i++) {
